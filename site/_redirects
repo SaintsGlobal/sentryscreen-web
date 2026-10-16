@@ -1,0 +1,19 @@
+# Pages that were removed when SentryScreen became free and open source.
+# Old links land on the nearest page that still exists.
+/account          /                                                    301
+/account/*        /                                                    301
+/see-it-work      /                                                    301
+/see-it-work/*    /                                                    301
+/eula             https://github.com/SaintsGlobal/sentryscreen/blob/main/LICENSE 301
+/eula/*           https://github.com/SaintsGlobal/sentryscreen/blob/main/LICENSE 301
+/refunds          /support/                                            301
+/refunds/*        /support/                                            301
+/release-notes    https://github.com/SaintsGlobal/sentryscreen/releases 301
+/release-notes/*  https://github.com/SaintsGlobal/sentryscreen/releases 301
+/devices          /support/                                            301
+/devices/*        /support/                                            301
+/subscribe        /#download                                           301
+/subscribe/*      /#download                                           301
+/trial            /#download                                           301
+/trial/*          /#download                                           301
+/pricing          /#download                                           301

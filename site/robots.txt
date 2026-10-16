@@ -1,0 +1,12 @@
+# Every page on this site is public and open to every crawler.
+# Cloudflare's "managed robots.txt" must stay off for this zone: it prepends
+# its own rules to this file.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+Disallow: /v1/
+Disallow: /admin
+Disallow: /health
+
+Sitemap: https://www.sentry-screen.com/sitemap.xml

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Support — SentryScreen</title>
+    <meta name="description" content="Get help with SentryScreen: report a problem on GitHub, send a diagnostic report you approve, or write to us." />
+    <meta property="og:site_name" content="SentryScreen" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Support — SentryScreen" />
+    <meta property="og:description" content="Get help with SentryScreen: report a problem on GitHub, send a diagnostic report you approve, or write to us." />
+    <meta property="og:url" content="https://www.sentry-screen.com/support/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#f0e2c4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#2a1f18" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/shantell-sans-700.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- theme.js runs before the stylesheet (no defer) so a saved room choice paints first. -->
+    <script src="/theme.js?v=1e1f24ab"></script>
+    <link rel="stylesheet" href="/styles.css?v=c0c55221" />
+  </head>
+  <body class="support-page">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="wordmark" href="/"><!-- fig:mark --><svg class="ink-art mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="k-navy" d="M16 3.4Q17.3 3.4 18.8 3.6Q20.3 3.8 21.9 4.4Q23.6 5.1 24.5 6.4Q25.4 7.7 26.3 9Q27.1 10.2 27.3 12Q27.5 13.7 27.6 16.7Q27.7 19.8 27.6 22.7Q27.5 25.6 27.5 26.3Q27.6 26.9 27 27.3Q26.5 27.7 26.3 28Q26 28.3 25.5 28.7Q24.9 29 24.5 28.9Q24.1 28.8 21.4 29Q18.8 29.2 15.9 29.1Q13.1 29 10.4 29Q7.8 29 7.4 28.8Q6.9 28.7 6.5 28.4Q6.1 28.2 5.6 28Q5.1 27.8 4.8 27.1Q4.6 26.3 4.6 26Q4.6 25.7 4.4 22.5Q4.3 19.4 4.3 16.5Q4.4 13.6 4.7 12Q4.9 10.4 5.5 9.1Q6.2 7.7 7.4 6.7Q8.7 5.7 10.1 5Q11.6 4.2 13.2 3.8Q14.8 3.4 16 3.4Z"/><path class="s mark-line nf" stroke-width="2.4" d="M16 3.4Q17.3 3.4 18.8 3.6Q20.3 3.8 21.9 4.4Q23.6 5.1 24.5 6.4Q25.4 7.7 26.3 9Q27.1 10.2 27.3 12Q27.5 13.7 27.6 16.7Q27.7 19.8 27.6 22.7Q27.5 25.6 27.5 26.3Q27.6 26.9 27 27.3Q26.5 27.7 26.3 28Q26 28.3 25.5 28.7Q24.9 29 24.5 28.9Q24.1 28.8 21.4 29Q18.8 29.2 15.9 29.1Q13.1 29 10.4 29Q7.8 29 7.4 28.8Q6.9 28.7 6.5 28.4Q6.1 28.2 5.6 28Q5.1 27.8 4.8 27.1Q4.6 26.3 4.6 26Q4.6 25.7 4.4 22.5Q4.3 19.4 4.3 16.5Q4.4 13.6 4.7 12Q4.9 10.4 5.5 9.1Q6.2 7.7 7.4 6.7Q8.7 5.7 10.1 5Q11.6 4.2 13.2 3.8Q14.8 3.4 16 3.4Z"/><path class="s mark-line nf" stroke-width="1.1" d="M16 3.3Q17.6 3.3 19.1 3.6Q20.5 3.9 22 4.7Q23.5 5.5 24.5 6.6Q25.4 7.7 26.3 9.1Q27.2 10.5 27.5 12.1Q27.7 13.7 27.7 16.7Q27.6 19.7 27.4 22.6Q27.3 25.5 27.4 26.1Q27.5 26.6 27.1 27.1Q26.8 27.6 26.4 27.9Q25.9 28.1 25.4 28.4Q24.9 28.6 24.4 28.8Q24 29 21.3 28.9Q18.7 28.8 16.1 29Q13.5 29.2 10.9 29.1Q8.2 29 7.6 28.8Q7 28.7 6.5 28.5Q6 28.3 5.6 27.8Q5.3 27.4 5.1 27Q4.8 26.7 4.5 26.1Q4.3 25.4 4.4 22.6Q4.5 19.7 4.4 16.7Q4.3 13.7 4.6 12Q4.8 10.2 5.6 9Q6.3 7.7 7.4 6.7Q8.6 5.6 10 4.9Q11.5 4.1 12.9 3.7Q14.4 3.4 16 3.3Z"/><rect class="k-glow" x="10.6" y="10.5" width="3.8" height="6.2" rx="1.3"/><rect class="k-glow" x="17.6" y="10.5" width="3.8" height="6.2" rx="1.3"/><path class="s l-glow nf" stroke-width="1.7" d="M19.3 20.5Q18.4 21.1 17.8 21.4Q17.2 21.6 16.6 21.8Q16 21.9 15.4 21.8Q14.8 21.7 14.3 21.5Q13.8 21.3 13.3 20.8L12.8 20.4"/><path class="s l-glow nf" stroke-width="0.8" d="M19.3 20.4Q18.3 21.2 17.7 21.4Q17.2 21.6 16.6 21.7Q15.9 21.8 15.4 21.7Q14.8 21.5 14.3 21.4Q13.8 21.2 13.3 20.9L12.8 20.5"/></svg><!-- /fig -->SentryScreen</a>
+        <!-- Two copies of the same links: a row from 900 px, and a Menu
+             disclosure under it (a native <details>, so it works without
+             script). The room switch shows only with script (theme.js). -->
+        <nav class="nav-bar" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="/#what">How it works</a></li>
+            <li><a href="/#download">Download</a></li>
+            <li><a href="/#faq">Questions</a></li>
+            <li><a href="/support/">Support</a></li>
+            <li class="needs-js"><button class="theme-toggle" type="button" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg><span class="visually-hidden">Dark mode</span></button></li>
+            <li><a class="btn btn-primary btn-sm" href="https://github.com/SaintsGlobal/sentryscreen/releases">Download</a></li>
+          </ul>
+        </nav>
+        <details class="nav-menu">
+          <summary>Menu</summary>
+          <nav class="nav-panel" aria-label="Main">
+            <ul class="nav-list">
+              <li><a href="/#what">How it works</a></li>
+              <li><a href="/#download">Download</a></li>
+              <li><a href="/#faq">Questions</a></li>
+              <li><a href="/support/">Support</a></li>
+            </ul>
+            <button class="theme-toggle theme-toggle-row needs-js" type="button" aria-pressed="false"><span class="theme-label"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>Dark mode</span><span class="theme-switch" aria-hidden="true"></span></button>
+            <p><a class="btn btn-primary" href="https://github.com/SaintsGlobal/sentryscreen/releases">Download</a></p>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-head">
+        <div class="wrap">
+          <div>
+            <p class="eyebrow">Support</p>
+            <h1>How can we help?</h1>
+            <p class="lede">
+              Report a problem on GitHub, send us a diagnostic report from the
+              app, or write to us.
+            </p>
+          </div>
+          <div class="page-figure"><!-- fig:lantern-wave --><svg class="ink-art figure" viewBox="-150 -262 300 282" aria-hidden="true" focusable="false"><defs>
+<radialGradient id="fig-wave-halo"><stop offset="0" class="st-halo" stop-opacity=".9"/><stop offset=".45" class="st-halo" stop-opacity=".35"/><stop offset="1" class="st-halo" stop-opacity="0"/></radialGradient>
+<radialGradient id="fig-wave-halo-green"><stop offset="0" class="st-halo-green" stop-opacity=".8"/><stop offset="1" class="st-halo-green" stop-opacity="0"/></radialGradient>
+<radialGradient id="fig-wave-beacon"><stop offset="0" class="st-beacon" stop-opacity=".95"/><stop offset=".5" class="st-beacon" stop-opacity=".35"/><stop offset="1" class="st-beacon" stop-opacity="0"/></radialGradient>
+</defs><ellipse class="k-shadow" cx="0" cy="2" rx="96" ry="9"/><path class="s nf" stroke-width="3.5" d="M-90.6 -48.7Q-89.3 -52.6 -88.3 -53.9Q-87.3 -55.2 -85.5 -56.3Q-83.8 -57.3 -81.7 -57.7Q-79.7 -58.2 -77.9 -57.9Q-76 -57.5 -74.5 -56.6Q-72.9 -55.7 -71.8 -54.1Q-70.7 -52.5 -70 -50.5L-69.2 -48.5"/><path class="s nf" stroke-width="1.6" d="M-90.6 -48.5Q-89.3 -52.2 -88.4 -53.7Q-87.4 -55.2 -85.5 -56.2Q-83.6 -57.2 -81.8 -57.7Q-80 -58.3 -78.2 -57.7Q-76.4 -57 -74.8 -56.3Q-73.2 -55.5 -71.8 -53.8Q-70.4 -52.2 -69.7 -50.6L-69.1 -48.9"/><ellipse class="halo" cx="-80" cy="-17" rx="34" ry="34" fill="url(#fig-wave-halo)"/><path class="k-ink s" stroke-width="3" d="M-88.8 -38.9Q-91.7 -38.6 -90.7 -40.9Q-89.6 -43.3 -88.2 -45.2Q-86.8 -47.2 -84.5 -46.9Q-82.1 -46.7 -79.9 -47Q-77.6 -47.3 -75.4 -47Q-73.2 -46.8 -71.9 -44.8Q-70.7 -42.9 -69.3 -41Q-67.9 -39.2 -71.1 -38.9Q-74.2 -38.6 -77.3 -38.7Q-80.3 -38.8 -83 -39Q-85.8 -39.3 -88.8 -38.9Z"/><path class="s nf" stroke-width="1.4" d="M-89 -39Q-91.8 -39 -90.5 -41.1Q-89.3 -43.2 -88.2 -45.2Q-87.1 -47.2 -83.4 -47Q-79.8 -46.9 -76.4 -46.8Q-73 -46.7 -71.7 -44.8Q-70.3 -42.9 -69 -41Q-67.7 -39.1 -70.8 -38.9Q-73.9 -38.7 -77 -38.9Q-80.1 -39.2 -83.2 -39.1Q-86.2 -39 -89 -39Z"/><path class="k-glow s" stroke-width="3.5" d="M-76.7 -39.2Q-73.5 -39.1 -72.9 -39.1Q-72.3 -39.1 -71.6 -38.6Q-70.9 -38.2 -70.3 -37.7Q-69.7 -37.1 -69.5 -36.4Q-69.4 -35.6 -69.3 -34.7Q-69.2 -33.8 -69.4 -30.8Q-69.5 -27.8 -69.1 -24.1Q-68.7 -20.3 -69.1 -17.3Q-69.4 -14.2 -69.5 -13.5Q-69.5 -12.7 -69.8 -11.9Q-70.1 -11.1 -70.4 -10.5Q-70.8 -9.8 -71.4 -9.7Q-72.1 -9.6 -72.8 -9.2Q-73.6 -8.7 -76.6 -8.8Q-79.5 -8.9 -83 -9.2Q-86.4 -9.4 -86.9 -9.4Q-87.3 -9.3 -88 -9.6Q-88.7 -9.8 -89.6 -10.4Q-90.5 -11 -90.6 -11.7Q-90.6 -12.5 -90.8 -13.4Q-91 -14.4 -90.8 -17.6Q-90.5 -20.9 -90.7 -24.2Q-90.8 -27.5 -90.8 -30.9Q-90.9 -34.4 -90.8 -35.2Q-90.7 -36 -90.5 -36.6Q-90.3 -37.3 -89.8 -37.8Q-89.3 -38.3 -88.5 -38.4Q-87.6 -38.5 -87 -38.8Q-86.4 -39 -83.2 -39.1Q-80 -39.3 -76.7 -39.2Z"/><path class="s nf" stroke-width="1.6" d="M-76.9 -38.8Q-73.7 -38.7 -73.1 -38.6Q-72.6 -38.4 -71.7 -38.1Q-70.9 -37.7 -70.5 -37.2Q-70 -36.6 -69.8 -36.2Q-69.5 -35.9 -69.3 -34.7Q-69.1 -33.6 -68.9 -28.8Q-68.7 -24 -68.7 -18.9Q-68.7 -13.9 -69 -13.3Q-69.3 -12.8 -69.8 -12.1Q-70.3 -11.3 -70.8 -10.5Q-71.4 -9.7 -72 -9.7Q-72.6 -9.6 -73.2 -9.4Q-73.8 -9.2 -77 -9.2Q-80.2 -9.1 -83 -9Q-85.9 -8.9 -86.6 -8.9Q-87.4 -9 -88 -9.3Q-88.6 -9.6 -89.4 -10.2Q-90.1 -10.9 -90.3 -11.8Q-90.5 -12.8 -90.8 -13.2Q-91.2 -13.6 -91.1 -18.7Q-91.1 -23.7 -91.2 -28.7Q-91.3 -33.6 -91.2 -34.7Q-91.1 -35.8 -90.5 -36.5Q-89.9 -37.3 -89.5 -37.5Q-89.2 -37.8 -88.2 -38.3Q-87.2 -38.7 -86.7 -39Q-86.1 -39.2 -83.1 -39.1Q-80.1 -39 -76.9 -38.8Z"/><path class="s nf" stroke-width="2" d="M-92.2 -24.2Q-80.4 -23.8 -75.1 -23.4L-69.7 -22.9"/><path class="s nf" stroke-width="0.9" d="M-91.3 -24.4Q-79.1 -24.7 -74.4 -24.7L-69.7 -24.6"/><path class="s nf" stroke-width="2" d="M-79.7 -38.7Q-80.3 -24.6 -80.5 -17.8L-80.8 -11"/><path class="s nf" stroke-width="0.9" d="M-79.6 -37.2Q-80.1 -24.3 -79.7 -17.4L-79.3 -10.5"/><path class="k-ink s" stroke-width="3" d="M-71.8 -10.1Q-68.7 -10 -68.2 -10.1Q-67.7 -10.2 -67.6 -9.9Q-67.5 -9.6 -66.9 -9Q-66.3 -8.4 -66.2 -8.2Q-66.1 -7.9 -66.2 -7.3Q-66.3 -6.8 -66.2 -5.8Q-66.1 -4.9 -66.1 -4.5Q-66.2 -4.1 -66.3 -3.7Q-66.4 -3.4 -66.8 -3.2Q-67.2 -2.9 -67.6 -2.5Q-68.1 -2 -68.5 -2.2Q-68.9 -2.3 -71.5 -2.3Q-74.1 -2.2 -77.1 -1.9Q-80 -1.7 -82.8 -1.8Q-85.5 -1.9 -88.1 -1.9Q-90.7 -1.9 -91.1 -2Q-91.5 -2.2 -92 -2.4Q-92.5 -2.6 -92.8 -3.1Q-93.1 -3.6 -93.7 -4Q-94.2 -4.4 -94.1 -4.7Q-94 -5.1 -94.2 -6.2Q-94.4 -7.3 -94.2 -7.7Q-94.1 -8.2 -93.8 -8.6Q-93.5 -9 -93 -9.1Q-92.5 -9.3 -92.4 -9.5Q-92.3 -9.8 -91.5 -9.7Q-90.7 -9.6 -88.1 -9.9Q-85.5 -10.1 -82.7 -9.9Q-80 -9.8 -77.4 -10Q-74.8 -10.2 -71.8 -10.1Z"/><path class="s nf" stroke-width="1.4" d="M-72.7 -9.9Q-68.8 -9.9 -68.6 -10Q-68.3 -10.1 -67.6 -9.7Q-66.9 -9.4 -66.9 -9Q-66.8 -8.5 -66.5 -8.2Q-66.1 -8 -66.1 -7.6Q-66.1 -7.2 -66.2 -6.1Q-66.2 -5.1 -66.3 -4.6Q-66.3 -4.1 -66.4 -3.6Q-66.5 -3.1 -66.8 -2.8Q-67.1 -2.6 -67.5 -2.4Q-67.9 -2.3 -68.4 -2.2Q-68.8 -2.2 -72.6 -2Q-76.3 -1.8 -80.1 -1.9Q-83.9 -1.9 -87.6 -2.1Q-91.2 -2.2 -91.6 -2.3Q-92 -2.4 -92.3 -2.6Q-92.7 -2.7 -93.2 -3.1Q-93.7 -3.4 -93.7 -3.8Q-93.7 -4.1 -93.9 -4.4Q-94.1 -4.7 -93.9 -6Q-93.8 -7.3 -93.7 -7.7Q-93.6 -8.2 -93.6 -8.6Q-93.6 -8.9 -93.1 -9.1Q-92.6 -9.2 -92.1 -9.6Q-91.6 -10 -91.3 -9.8Q-91.1 -9.7 -87.4 -10Q-83.7 -10.3 -80.1 -10.1Q-76.5 -9.8 -72.7 -9.9Z"/><path class="s nf" stroke-width="5" d="M-57.8 -99.3Q-69 -82.3 -74.5 -74L-80.1 -65.8"/><path class="s nf" stroke-width="2.3" d="M-58.5 -100Q-69.3 -83.1 -74.3 -74.8L-79.3 -66.6"/><path class="k-navy s" stroke-width="4" d="M-68.7 -68.6Q-68.6 -66.4 -69.1 -63Q-69.7 -59.6 -71.3 -58.1Q-72.9 -56.7 -75.9 -55.9Q-78.8 -55.2 -82.7 -55.3Q-86.6 -55.5 -88.2 -57.8Q-89.8 -60.1 -90.8 -62.4Q-91.8 -64.7 -90.7 -68.1Q-89.7 -71.5 -87.9 -73.4Q-86.2 -75.3 -83.8 -76.9Q-81.3 -78.5 -77.3 -77.5Q-73.2 -76.5 -71.1 -73.7Q-68.9 -70.8 -68.7 -68.6Z"/><path class="s nf" stroke-width="1.8" d="M-70.1 -69.6Q-68.7 -66.7 -69.5 -63.1Q-70.4 -59.6 -72.9 -57.6Q-75.3 -55.7 -77.8 -55.5Q-80.3 -55.3 -83.5 -55.8Q-86.7 -56.4 -88 -58.9Q-89.3 -61.5 -89.6 -63.8Q-89.9 -66.1 -89.8 -68.5Q-89.6 -70.9 -88.1 -73.1Q-86.6 -75.4 -83.1 -76.5Q-79.7 -77.7 -77.6 -77Q-75.5 -76.3 -73.5 -74.4Q-71.5 -72.5 -70.1 -69.6Z"/><path class="s nf" stroke-width="5" d="M57.2 -100Q71.2 -116.3 77.4 -125.1Q83.6 -134 90 -142.4Q96.5 -150.7 97.8 -157.8Q99.2 -164.9 100.6 -172.9Q101.9 -181 103.1 -188.9L104.3 -196.8"/><path class="s nf" stroke-width="2.3" d="M57.5 -100Q70.8 -117.1 77.3 -125.4Q83.8 -133.7 90 -141.9Q96.1 -150.1 97.8 -161.8Q99.6 -173.4 101.5 -184.6L103.5 -195.8"/><path class="k-navy s" stroke-width="4" d="M114.9 -200Q116.2 -197.5 114.7 -194.6Q113.1 -191.7 111 -189.6Q108.8 -187.5 107.2 -186.5Q105.5 -185.4 101.8 -186.7Q98.1 -188 97.1 -189.2Q96.1 -190.3 94.8 -192.6Q93.5 -194.9 93.4 -198.4Q93.3 -202 96 -204.1Q98.8 -206.3 101.9 -207.1Q104.9 -207.8 107.3 -207.2Q109.7 -206.6 111.7 -204.5Q113.6 -202.5 114.9 -200Z"/><path class="s nf" stroke-width="1.8" d="M114.5 -198.7Q116.1 -196.8 115 -193.5Q113.9 -190.2 111.1 -188.5Q108.3 -186.8 105.8 -186.2Q103.3 -185.6 101.4 -185.6Q99.4 -185.6 97.1 -188.2Q94.8 -190.8 94.3 -193.7Q93.8 -196.6 94.1 -199.6Q94.4 -202.5 95.8 -203.8Q97.3 -205.1 100.2 -206.1Q103.1 -207 106.1 -206.1Q109 -205.1 110.9 -202.9Q112.8 -200.6 114.5 -198.7Z"/><path class="s nf" stroke-width="5" d="M-27 -42.3Q-26.8 -23.3 -26.5 -13.4L-26.1 -3.6"/><path class="s nf" stroke-width="2.3" d="M-27.6 -42.4Q-26.5 -23 -26.7 -13.3L-26.9 -3.6"/><path class="k-ink s" stroke-width="3.5" d="M-20 -6.1Q-19.9 -4.2 -20.4 -2.2Q-20.8 -0.2 -23.1 1.1Q-25.3 2.4 -27.8 2Q-30.4 1.6 -35.1 2Q-39.8 2.3 -40.8 1Q-41.8 -0.3 -43.7 -2.4Q-45.6 -4.5 -45.1 -6.6Q-44.7 -8.7 -41.8 -9.7Q-38.9 -10.7 -36 -10.1Q-33.1 -9.5 -29 -9.2Q-25 -8.9 -22.6 -8.5Q-20.2 -8.1 -20 -6.1Z"/><path class="s nf" stroke-width="1.6" d="M-19.9 -4.7Q-19.4 -3.3 -20 -2.2Q-20.7 -1.1 -22.7 -0.3Q-24.7 0.5 -28.9 0.9Q-33.1 1.3 -36.4 1.7Q-39.8 2.1 -41.6 0.8Q-43.4 -0.5 -44 -2.2Q-44.6 -3.9 -44.2 -5.4Q-43.7 -6.9 -40.6 -7.7Q-37.6 -8.5 -34.7 -9Q-31.8 -9.5 -29.1 -10.1Q-26.4 -10.7 -23.4 -8.5Q-20.4 -6.2 -19.9 -4.7Z"/><path class="s nf" stroke-width="5" d="M26.7 -40.9Q27.4 -24.1 26.7 -14.6L26 -5.1"/><path class="s nf" stroke-width="2.3" d="M26.3 -42.6Q27.8 -23.6 27.8 -13.9L27.9 -4.3"/><path class="k-ink s" stroke-width="3.5" d="M44.7 -5Q45.1 -2.9 43.9 -1.2Q42.7 0.6 40.7 0.6Q38.7 0.5 34.7 1.3Q30.7 2 28.5 1.6Q26.3 1.1 23.8 0.8Q21.3 0.4 19.6 -2.3Q17.9 -5 19.4 -6.3Q20.9 -7.5 23.6 -8.6Q26.3 -9.7 28.6 -10.2Q31 -10.8 35.5 -10.2Q40 -9.7 42.1 -8.3Q44.3 -7 44.7 -5Z"/><path class="s nf" stroke-width="1.6" d="M43.8 -5.9Q44 -5.2 43.3 -3.4Q42.7 -1.6 40.5 -0.2Q38.3 1.2 35.3 1.8Q32.4 2.3 28.6 1.4Q24.8 0.4 22.7 -0.5Q20.6 -1.4 19.7 -2.5Q18.7 -3.5 19.8 -5.6Q20.8 -7.6 23.1 -8.4Q25.3 -9.2 28.6 -10.3Q31.9 -11.3 35.3 -9.8Q38.7 -8.4 41.2 -7.5Q43.6 -6.6 43.8 -5.9Z"/><path class="s nf" stroke-width="3.5" d="M82 -199.3Q83.9 -204.2 85 -206.4Q86.1 -208.7 87.4 -210.5Q88.7 -212.4 90.7 -213.8Q92.7 -215.2 94.8 -216.1L97 -217"/><path class="s nf" stroke-width="1.6" d="M82.5 -199.6Q83.6 -204.3 84.7 -206.2Q85.8 -208.1 87.4 -210Q88.9 -212 90.7 -213.4Q92.6 -214.8 94.8 -216L97.1 -217.2"/><path class="s nf" stroke-width="3.5" d="M71.3 -206.3Q72.9 -208.9 73.6 -210.5Q74.3 -212 75 -213.1Q75.6 -214.1 76.4 -215.5Q77.2 -217 78.3 -218.1Q79.3 -219.1 80.2 -220.4Q81 -221.6 82.4 -222.3Q83.8 -223.1 85 -224.2Q86.2 -225.3 87.3 -225.9Q88.4 -226.6 90.1 -227.3L91.7 -228"/><path class="s nf" stroke-width="1.6" d="M71.7 -206.7Q73.9 -212.1 75.6 -214.4Q77.3 -216.8 79.2 -219Q81.2 -221.2 83.5 -223.1Q85.9 -225 88.7 -226.2L91.5 -227.4"/><path class="s nf" stroke-width="3.5" d="M111 -217.1Q115.3 -215 117.2 -213.4Q119.1 -211.9 120.5 -210.2Q121.9 -208.6 123 -206.2Q124.1 -203.9 124.8 -201.5L125.5 -199.2"/><path class="s nf" stroke-width="1.6" d="M110.5 -216.6Q114.9 -214.8 117 -213.4Q119.1 -212 120.8 -210.2Q122.4 -208.3 123.5 -206.3Q124.5 -204.2 125.2 -201.8L125.8 -199.4"/><clipPath id="fig-wave-fig-wave-clip"><path  d="M10.5 -177.3Q20.6 -177.5 27.7 -176.5Q34.9 -175.4 40.9 -172.2Q46.9 -169.1 50.5 -164.2Q54.2 -159.3 57.4 -153.9Q60.5 -148.4 61.4 -142.3Q62.3 -136.1 62.8 -122.9Q63.3 -109.7 63.2 -95.9Q63.2 -82.2 62 -67.4Q60.9 -52.6 61.1 -51.6Q61.4 -50.6 60.4 -47.5Q59.4 -44.5 58 -44.3Q56.6 -44.1 54.9 -42.5Q53.2 -41 50.4 -40Q47.6 -38.9 32.1 -39.4Q16.6 -40 0.5 -40.5Q-15.6 -41 -32.4 -40.9Q-49.1 -40.8 -51 -41.4Q-52.9 -42 -54 -42.8Q-55.2 -43.6 -56.6 -43.9Q-58 -44.3 -59.6 -46.9Q-61.2 -49.5 -62.2 -51.5Q-63.3 -53.6 -63.4 -67.1Q-63.4 -80.7 -63.3 -94.6Q-63.1 -108.5 -62.5 -122.9Q-62 -137.4 -61.7 -143.4Q-61.3 -149.4 -58.4 -153.8Q-55.4 -158.1 -49.7 -163.6Q-43.9 -169 -38.6 -172Q-33.2 -174.9 -27.1 -175.9Q-21.1 -177 -10.3 -177Q0.4 -177.1 10.5 -177.3Z"/></clipPath><path class="k-navy" d="M10.5 -177.3Q20.6 -177.5 27.7 -176.5Q34.9 -175.4 40.9 -172.2Q46.9 -169.1 50.5 -164.2Q54.2 -159.3 57.4 -153.9Q60.5 -148.4 61.4 -142.3Q62.3 -136.1 62.8 -122.9Q63.3 -109.7 63.2 -95.9Q63.2 -82.2 62 -67.4Q60.9 -52.6 61.1 -51.6Q61.4 -50.6 60.4 -47.5Q59.4 -44.5 58 -44.3Q56.6 -44.1 54.9 -42.5Q53.2 -41 50.4 -40Q47.6 -38.9 32.1 -39.4Q16.6 -40 0.5 -40.5Q-15.6 -41 -32.4 -40.9Q-49.1 -40.8 -51 -41.4Q-52.9 -42 -54 -42.8Q-55.2 -43.6 -56.6 -43.9Q-58 -44.3 -59.6 -46.9Q-61.2 -49.5 -62.2 -51.5Q-63.3 -53.6 -63.4 -67.1Q-63.4 -80.7 -63.3 -94.6Q-63.1 -108.5 -62.5 -122.9Q-62 -137.4 -61.7 -143.4Q-61.3 -149.4 -58.4 -153.8Q-55.4 -158.1 -49.7 -163.6Q-43.9 -169 -38.6 -172Q-33.2 -174.9 -27.1 -175.9Q-21.1 -177 -10.3 -177Q0.4 -177.1 10.5 -177.3Z"/><g clip-path="url(#fig-wave-fig-wave-clip)"><rect class="k-navy-light" x="-80" y="-186" width="160" height="37.2"/><path class="s l-navy-deep nf" stroke-width="3" d="M-69.9 -148.5Q-52.5 -147.9 -43.4 -148.4Q-34.2 -148.9 -26 -148.9Q-17.8 -148.8 -8.8 -149.1Q0.3 -149.3 8.7 -149.4Q17.1 -149.5 25.7 -148.6Q34.3 -147.8 43.1 -148.3Q51.8 -148.8 61.3 -149L70.7 -149.2"/><path class="s l-navy-deep nf" stroke-width="1.4" d="M-70 -148.6Q-47.1 -149.1 -35.1 -149.2Q-23 -149.3 -11.9 -148.8Q-0.7 -148.4 11.2 -148.7Q23 -149 35 -149.3Q47 -149.6 58.2 -148.9L69.4 -148.2"/></g><ellipse class="halo" cx="-26" cy="-129.8" rx="31.5" ry="35.7" fill="url(#fig-wave-halo)"/><ellipse class="halo" cx="26" cy="-129.8" rx="31.5" ry="35.7" fill="url(#fig-wave-halo)"/><path class="s nf" stroke-width="6" d="M10.5 -177.3Q20.6 -177.5 27.7 -176.5Q34.9 -175.4 40.9 -172.2Q46.9 -169.1 50.5 -164.2Q54.2 -159.3 57.4 -153.9Q60.5 -148.4 61.4 -142.3Q62.3 -136.1 62.8 -122.9Q63.3 -109.7 63.2 -95.9Q63.2 -82.2 62 -67.4Q60.9 -52.6 61.1 -51.6Q61.4 -50.6 60.4 -47.5Q59.4 -44.5 58 -44.3Q56.6 -44.1 54.9 -42.5Q53.2 -41 50.4 -40Q47.6 -38.9 32.1 -39.4Q16.6 -40 0.5 -40.5Q-15.6 -41 -32.4 -40.9Q-49.1 -40.8 -51 -41.4Q-52.9 -42 -54 -42.8Q-55.2 -43.6 -56.6 -43.9Q-58 -44.3 -59.6 -46.9Q-61.2 -49.5 -62.2 -51.5Q-63.3 -53.6 -63.4 -67.1Q-63.4 -80.7 -63.3 -94.6Q-63.1 -108.5 -62.5 -122.9Q-62 -137.4 -61.7 -143.4Q-61.3 -149.4 -58.4 -153.8Q-55.4 -158.1 -49.7 -163.6Q-43.9 -169 -38.6 -172Q-33.2 -174.9 -27.1 -175.9Q-21.1 -177 -10.3 -177Q0.4 -177.1 10.5 -177.3Z"/><path class="s nf" stroke-width="2.7" d="M-0.4 -176.7Q21.4 -176.7 28.1 -175.1Q34.7 -173.5 40.6 -170.5Q46.5 -167.5 50.9 -163.7Q55.4 -160 57.3 -154.3Q59.3 -148.6 60.5 -142.2Q61.7 -135.8 62.1 -115.4Q62.5 -95 61.6 -74.2Q60.8 -53.4 60.8 -51.5Q60.8 -49.6 59.5 -47.7Q58.1 -45.8 57 -44Q55.9 -42.2 54.5 -41.5Q53.2 -40.7 51.2 -40Q49.2 -39.3 32.6 -39.3Q15.9 -39.3 -0.6 -39.4Q-17.2 -39.6 -32.2 -40.4Q-47.3 -41.3 -49.6 -41.1Q-51.9 -40.8 -54.4 -42.1Q-56.9 -43.4 -58.6 -44Q-60.3 -44.6 -60.3 -46.9Q-60.3 -49.1 -60.7 -51.1Q-61.2 -53 -61.9 -73.4Q-62.6 -93.8 -62.3 -115.1Q-61.9 -136.3 -60.9 -142.9Q-60 -149.5 -56.8 -154.2Q-53.7 -159 -50.1 -164.1Q-46.5 -169.1 -40.8 -171Q-35.1 -172.9 -28.7 -174.8Q-22.3 -176.7 -0.4 -176.7Z"/><rect class="k-glow eye" x="-37" y="-143.8" width="22" height="28" rx="5"/><rect class="k-glow eye" x="15" y="-143.8" width="22" height="28" rx="5"/><path class="k-glow" d="M12.7 -97.8Q15.3 -97.7 14.7 -95.4Q14.2 -93 13.1 -90.9Q12.1 -88.8 10.5 -87.1Q8.9 -85.4 6.8 -84.5Q4.7 -83.6 2.3 -83.1Q0 -82.5 -2.2 -82.9Q-4.3 -83.3 -6.7 -84.4Q-9.1 -85.6 -10.6 -87.3Q-12.2 -89 -13.3 -91Q-14.4 -93.1 -14.7 -95.3Q-15.1 -97.5 -12.5 -97.6Q-10 -97.7 -7.5 -97.7Q-5 -97.7 -2.6 -97.7Q-0.1 -97.6 2.5 -97.5Q5.2 -97.4 7.6 -97.6Q10 -97.9 12.7 -97.8Z"/></svg><!-- /fig --></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap support-grid">
+          <div>
+            <h2>Report a problem</h2>
+            <p>
+              Open an issue on GitHub: what you expected, what happened, your
+              macOS version and the SentryScreen version (Settings shows it).
+              Never attach a screenshot of explicit content.
+            </p>
+            <p class="btn-row"><a class="btn btn-strong" href="https://github.com/SaintsGlobal/sentryscreen/issues">Open an issue</a></p>
+
+            <h2 class="support-write" id="diagnostics">Send a diagnostic report</h2>
+            <p>
+              A report shows us what the app was doing, without anything from
+              your screen. In SentryScreen&rsquo;s settings, open the
+              diagnostics section, read the report, and approve sending it.
+              Nothing is sent before you approve it, and it is sent only once.
+              Before you press Send, copy the report&rsquo;s
+              <code>machine_id</code> from the review screen and mention it in
+              your issue so we can find the report. <a href="/privacy/#diagnostics">What a report contains</a>.
+            </p>
+
+            <h2 class="support-write">Write to us</h2>
+            <p>
+              For anything you would rather not post in public, email us.
+            </p>
+            <!-- No mailto. Without script the address is spelled out in
+                 words; support.js assembles it on request. -->
+            <p class="email-reveal" aria-live="polite">
+              <span class="no-js-only">support at sentry-screen dot com</span>
+              <button class="btn needs-js" id="show-email" type="button">Show email address</button>
+              <span class="email-address" id="support-email" tabindex="-1" hidden></span>
+            </p>
+
+            <h3 id="security">Report a security problem</h3>
+            <p>
+              Found a way around SentryScreen&rsquo;s protection, or a security
+              problem in the app, this site or our server? Report it privately
+              through <a href="https://github.com/SaintsGlobal/sentryscreen/security/advisories/new">GitHub security
+              advisories</a>, or write to the address above with
+              &ldquo;Security&rdquo; in the subject. Please do not open a
+              public issue for it.
+            </p>
+          </div>
+
+          <ul class="cards">
+            <li class="card">
+              <h3>Download</h3>
+              <p>Every version, with what changed, is on GitHub Releases.</p>
+              <a class="btn" href="https://github.com/SaintsGlobal/sentryscreen/releases">GitHub Releases</a>
+            </li>
+            <li class="card">
+              <h3>Source code</h3>
+              <p>The app, the model and how to build it yourself.</p>
+              <a class="btn" href="https://github.com/SaintsGlobal/sentryscreen">Source on GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section band" id="check-a-mac" tabindex="-1" aria-labelledby="check-a-mac-title">
+        <div class="wrap">
+         <div class="check-mac">
+          <h2 id="check-a-mac-title">How to check a Mac</h2>
+          <p>
+            If you think SentryScreen is not covering on a Mac, these steps
+            take a few minutes.
+          </p>
+          <ol class="steps steps-open">
+            <li>
+              <h3>Open SentryScreen on that Mac</h3>
+              <p>
+                Click the SentryScreen icon in the menu bar. It should say
+                Protected. If it says anything else, or the icon is missing,
+                sign in to an administrator account, open SentryScreen from
+                the Applications folder and follow what it says.
+                If a second screen is connected, it also names the one screen
+                it protects; anything on the other screen is not covered.
+              </p>
+            </li>
+            <li>
+              <h3>Make sure your child's account is Standard</h3>
+              <p>
+                Open System Settings, then Users &amp; Groups. Your child's
+                account should say Standard, not Admin. Anyone with an
+                administrator account can stop or remove any app, SentryScreen
+                included.
+              </p>
+            </li>
+            <li>
+              <h3>Change the parent PIN if you are unsure</h3>
+              <p>
+                If your child might know it, choose a new one: click the
+                SentryScreen icon, then Settings&hellip;, then Change PIN.
+              </p>
+            </li>
+            <li>
+              <h3>Still not right? Tell us</h3>
+              <p>
+                Send a <a href="#diagnostics">diagnostic report</a> and open
+                an issue on <a href="https://github.com/SaintsGlobal/sentryscreen/issues">GitHub</a> with what you saw.
+              </p>
+            </li>
+          </ol>
+         </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <a class="wordmark" href="/"><!-- fig:mark --><svg class="ink-art mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="k-navy" d="M16 3.4Q17.3 3.4 18.8 3.6Q20.3 3.8 21.9 4.4Q23.6 5.1 24.5 6.4Q25.4 7.7 26.3 9Q27.1 10.2 27.3 12Q27.5 13.7 27.6 16.7Q27.7 19.8 27.6 22.7Q27.5 25.6 27.5 26.3Q27.6 26.9 27 27.3Q26.5 27.7 26.3 28Q26 28.3 25.5 28.7Q24.9 29 24.5 28.9Q24.1 28.8 21.4 29Q18.8 29.2 15.9 29.1Q13.1 29 10.4 29Q7.8 29 7.4 28.8Q6.9 28.7 6.5 28.4Q6.1 28.2 5.6 28Q5.1 27.8 4.8 27.1Q4.6 26.3 4.6 26Q4.6 25.7 4.4 22.5Q4.3 19.4 4.3 16.5Q4.4 13.6 4.7 12Q4.9 10.4 5.5 9.1Q6.2 7.7 7.4 6.7Q8.7 5.7 10.1 5Q11.6 4.2 13.2 3.8Q14.8 3.4 16 3.4Z"/><path class="s mark-line nf" stroke-width="2.4" d="M16 3.4Q17.3 3.4 18.8 3.6Q20.3 3.8 21.9 4.4Q23.6 5.1 24.5 6.4Q25.4 7.7 26.3 9Q27.1 10.2 27.3 12Q27.5 13.7 27.6 16.7Q27.7 19.8 27.6 22.7Q27.5 25.6 27.5 26.3Q27.6 26.9 27 27.3Q26.5 27.7 26.3 28Q26 28.3 25.5 28.7Q24.9 29 24.5 28.9Q24.1 28.8 21.4 29Q18.8 29.2 15.9 29.1Q13.1 29 10.4 29Q7.8 29 7.4 28.8Q6.9 28.7 6.5 28.4Q6.1 28.2 5.6 28Q5.1 27.8 4.8 27.1Q4.6 26.3 4.6 26Q4.6 25.7 4.4 22.5Q4.3 19.4 4.3 16.5Q4.4 13.6 4.7 12Q4.9 10.4 5.5 9.1Q6.2 7.7 7.4 6.7Q8.7 5.7 10.1 5Q11.6 4.2 13.2 3.8Q14.8 3.4 16 3.4Z"/><path class="s mark-line nf" stroke-width="1.1" d="M16 3.3Q17.6 3.3 19.1 3.6Q20.5 3.9 22 4.7Q23.5 5.5 24.5 6.6Q25.4 7.7 26.3 9.1Q27.2 10.5 27.5 12.1Q27.7 13.7 27.7 16.7Q27.6 19.7 27.4 22.6Q27.3 25.5 27.4 26.1Q27.5 26.6 27.1 27.1Q26.8 27.6 26.4 27.9Q25.9 28.1 25.4 28.4Q24.9 28.6 24.4 28.8Q24 29 21.3 28.9Q18.7 28.8 16.1 29Q13.5 29.2 10.9 29.1Q8.2 29 7.6 28.8Q7 28.7 6.5 28.5Q6 28.3 5.6 27.8Q5.3 27.4 5.1 27Q4.8 26.7 4.5 26.1Q4.3 25.4 4.4 22.6Q4.5 19.7 4.4 16.7Q4.3 13.7 4.6 12Q4.8 10.2 5.6 9Q6.3 7.7 7.4 6.7Q8.6 5.6 10 4.9Q11.5 4.1 12.9 3.7Q14.4 3.4 16 3.3Z"/><rect class="k-glow" x="10.6" y="10.5" width="3.8" height="6.2" rx="1.3"/><rect class="k-glow" x="17.6" y="10.5" width="3.8" height="6.2" rx="1.3"/><path class="s l-glow nf" stroke-width="1.7" d="M19.3 20.5Q18.4 21.1 17.8 21.4Q17.2 21.6 16.6 21.8Q16 21.9 15.4 21.8Q14.8 21.7 14.3 21.5Q13.8 21.3 13.3 20.8L12.8 20.4"/><path class="s l-glow nf" stroke-width="0.8" d="M19.3 20.4Q18.3 21.2 17.7 21.4Q17.2 21.6 16.6 21.7Q15.9 21.8 15.4 21.7Q14.8 21.5 14.3 21.4Q13.8 21.2 13.3 20.9L12.8 20.5"/></svg><!-- /fig -->SentryScreen</a>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="/support/">Support</a></li>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="https://github.com/SaintsGlobal/sentryscreen">Source code</a></li>
+            <li><a href="https://github.com/SaintsGlobal/sentryscreen/releases">Releases</a></li>
+            <li><a href="https://github.com/SaintsGlobal/sentryscreen/blob/main/LICENSE">License (AGPL-3.0)</a></li>
+            <li><a href="https://donate.stripe.com/6oU5kv0Oa7UZ8gLaJ40gw04">Support the project</a></li>
+          </ul>
+        </nav>
+        <address class="company">
+          <span>SentryScreen, LLC</span>
+          <span>1605 Central Ave Ste 6-252</span>
+          <span>Summerville, SC 29483</span>
+        </address>
+      </div>
+    </footer>
+
+    <!-- First-party scripts; the page is complete without any of them. -->
+    <script src="/menu.js?v=5109ed09" defer></script>
+    <script src="/support.js?v=63c77e56" defer></script>
+  </body>
+</html>

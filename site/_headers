@@ -1,0 +1,14 @@
+# Cloudflare Pages response headers for every path served from this directory.
+#
+# The CSP is the site's whole surface: one stylesheet, the first-party scripts
+# (theme.js, hero.js, demos.js, menu.js, support.js), images and the one
+# self-hosted font, all from this origin. No fetch, no forms, no frames, no
+# third-party anything. Download and source links are plain <a> navigations to
+# GitHub, which CSP does not govern.
+# HSTS max-age: one year; no includeSubDomains because the API host is not
+# served by Pages.
+/*
+  Content-Security-Policy: default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Strict-Transport-Security: max-age=31536000

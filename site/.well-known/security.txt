@@ -1,0 +1,7 @@
+# SentryScreen vulnerability reports (RFC 9116). Reports go to the support
+# mailbox; the address is on the page below. Review this file before Expires.
+Contact: https://www.sentry-screen.com/support/#security
+Expires: 2027-10-01T00:00:00Z
+Preferred-Languages: en
+Canonical: https://www.sentry-screen.com/.well-known/security.txt
+Policy: https://www.sentry-screen.com/support/#security
