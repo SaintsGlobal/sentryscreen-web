@@ -15,7 +15,7 @@ open-source macOS app that covers explicit images on screen, on device.
 |---|---|---|
 | `GET /health` | anyone | `200 {"ok":true,"db":true}` when the process is up and Postgres answers, `503` otherwise |
 | `POST /v1/diagnostics` | the app | stores one report; answers `200 {"ok":true,"stored":true,"id":"<uuid>"}` |
-| `GET /admin/diagnostics` | operator | newest reports first, without bodies; `?since=<ISO 8601>&limit=<1..200>` (default 50) |
+| `GET /admin/diagnostics` | operator | newest reports first, without bodies; `?since=<ISO 8601>&limit=<1..200>` (default 50); next page: add `before=<received_at>&before_id=<id>` from the last row |
 | `GET /admin/diagnostics/:id` | operator | one report in full |
 
 Admin routes take `Authorization: Bearer $ADMIN_TOKEN`:
@@ -45,7 +45,9 @@ Refusals name what failed: `400 {"error":"bad_request","field","reason"}`,
 `413 {"error":"body_too_large","budget","configured","observed"}` (384 KiB after
 gunzip), and `429 {"error":"rate_limited","limit","configured","window_s","observed","retry_after_s"}`
 with a `Retry-After` header. Rate limits (`src/limits.ts`): 60 per IP per hour
-(an IPv6 client counts by /64) and 120 per hour for the whole server. A flood
+(an IPv6 client counts by /64), checked before the body is read, and 120 per
+hour for the whole server, counted only for a valid report. A report containing
+NUL (`\u0000`) is a `400`, since Postgres `jsonb` cannot store it. A flood
 can fill the global limit and delay real reports for up to an hour, which is
 acceptable at this volume.
 
@@ -64,7 +66,8 @@ acceptable at this volume.
   as SHA-256 hashes.
 - Logs carry the method, path, reason, the first 8 characters of the machine
   id, the app build and the size: never a query string, a body, a report or
-  the authorization header.
+  the authorization header. An unknown path logs its method and path only; an
+  unexpected error logs its code and route, never the error's message.
 
 ## Run locally
 

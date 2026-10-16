@@ -4,7 +4,9 @@
 //                                 send; JSON, optionally gzip-encoded. Answers
 //                                 200 {ok:true, stored:true, id}.
 //   GET  /admin/diagnostics       newest first, without report bodies
-//                                 (?since=<iso>&limit=<n ≤ DIAGNOSTICS_LIST_MAX>)
+//                                 (?since=<iso>&limit=<n ≤ DIAGNOSTICS_LIST_MAX>;
+//                                 next page: &before=<received_at>&before_id=<id>
+//                                 of the last row)
 //   GET  /admin/diagnostics/:id   one report in full
 //
 // The report is built on the Mac from an allowlist and redacted there; this
@@ -28,6 +30,9 @@ import { asObject, int, MACOS_RE, oneOf, rejectUnknownFields, str, UUID_RE, Vali
 
 const FIELDS = ['machine_id', 'app_version', 'app_build', 'os_version', 'arch', 'channel', 'reason', 'created_at', 'report'] as const;
 const REASONS = ['manual'] as const;
+/** A JSON \u0000 escape: `\u0000` after an even run of backslashes (an odd
+ *  run would make it the literal text `\u0000`, which jsonb accepts). */
+const NUL_ESCAPE_RE = /(?<!\\)(?:\\\\)*\\u0000/;
 const LIST_COLUMNS = 'id, received_at, machine_id, app_version, app_build, os_version, arch, channel, reason, created_at, bytes';
 
 /** The parsed body and its size after inflation (the `bytes` column). */
@@ -88,12 +93,16 @@ export function registerDiagnostics(app: FastifyInstance, deps: Deps): void {
       }
     });
 
-    sub.post('/v1/diagnostics', { bodyLimit: DIAGNOSTICS_BODY_BYTES, config: { bodyBudget: 'DIAGNOSTICS_BODY_BYTES' } }, async (req, reply) => {
+    // The per-IP limit runs in onRequest, before the body is read, inflated or
+    // parsed, so a refused client costs one upsert and no decompression.
+    const perIpGate = async (req: FastifyRequest, reply: FastifyReply) => {
+      const v = await perIp.hit(req.clientIp, deps.now().getTime());
+      if (!v.allowed) return reply.code(429).header('retry-after', v.retry_after_s).send(rateLimitBody(v));
+    };
+
+    sub.post('/v1/diagnostics', { bodyLimit: DIAGNOSTICS_BODY_BYTES, config: { bodyBudget: 'DIAGNOSTICS_BODY_BYTES' }, onRequest: perIpGate }, async (req, reply) => {
       const now = deps.now();
       const nowMs = now.getTime();
-      const ipVerdict = await perIp.hit(req.clientIp, nowMs);
-      if (!ipVerdict.allowed) return reply.code(429).header('retry-after', ipVerdict.retry_after_s).send(rateLimitBody(ipVerdict));
-
       const { json, bytes } = req.body as ParsedBody;
       const body = asObject(json);
       rejectUnknownFields(body, FIELDS);
@@ -108,6 +117,9 @@ export function registerDiagnostics(app: FastifyInstance, deps: Deps): void {
       const createdAt = int(body, 'created_at', 0, 4_102_444_800);
       const report = body.report;
       if (!report || typeof report !== 'object' || Array.isArray(report)) throw new ValidationError('report', 'must be a JSON object');
+      const reportJson = JSON.stringify(report);
+      // Postgres jsonb rejects \u0000, and its error would quote the report.
+      if (NUL_ESCAPE_RE.test(reportJson)) throw new ValidationError('report', 'must not contain NUL (\\u0000)');
 
       // After validation, so a body that is not a report cannot spend the
       // global budget.
@@ -120,7 +132,7 @@ export function registerDiagnostics(app: FastifyInstance, deps: Deps): void {
       const r = await deps.db.query<{ id: string }>(
         `INSERT INTO diagnostics (received_at, machine_id, app_version, app_build, os_version, arch, channel, reason, created_at, bytes, report)
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, to_timestamp($9), $10, $11) RETURNING id`,
-        [now, machineId, appVersion, appBuild, osVersion, arch, channel, reason, createdAt, bytes, JSON.stringify(report)],
+        [now, machineId, appVersion, appBuild, osVersion, arch, channel, reason, createdAt, bytes, reportJson],
       );
       const id = r.rows[0]!.id;
       req.log.info({ event: 'diagnostics_received', reason, machine_id8: machineId.slice(0, 8), app_build: appBuild, bytes }, 'diagnostics received');
@@ -145,25 +157,34 @@ export function registerDiagnostics(app: FastifyInstance, deps: Deps): void {
   app.get<{ Querystring: Record<string, unknown> }>('/admin/diagnostics', async (req, reply) => {
     if (!(await adminGate(req, reply))) return;
     const q = req.query;
-    rejectUnknownFields(q, ['since', 'limit']);
-    let since: Date | null = null;
-    if (q.since !== undefined) {
-      const ms = typeof q.since === 'string' ? Date.parse(q.since) : NaN;
-      if (Number.isNaN(ms)) throw new ValidationError('since', 'must be an ISO 8601 timestamp');
-      since = new Date(ms);
-    }
+    rejectUnknownFields(q, ['since', 'before', 'before_id', 'limit']);
+    const time = (field: 'since' | 'before'): Date | null => {
+      if (q[field] === undefined) return null;
+      const ms = typeof q[field] === 'string' ? Date.parse(q[field]) : NaN;
+      if (Number.isNaN(ms)) throw new ValidationError(field, 'must be an ISO 8601 timestamp');
+      return new Date(ms);
+    };
+    const since = time('since');
+    const before = time('before');
+    const beforeId = q.before_id;
+    if ((before === null) !== (beforeId === undefined)) throw new ValidationError('before_id', 'before and before_id go together');
+    if (beforeId !== undefined && (typeof beforeId !== 'string' || !UUID_RE.test(beforeId))) throw new ValidationError('before_id', 'must be a report id');
     let limit = DIAGNOSTICS_LIST_MAX / 4;
     if (q.limit !== undefined) {
       const n = typeof q.limit === 'string' && /^\d{1,6}$/.test(q.limit) ? Number(q.limit) : NaN;
       if (!Number.isInteger(n) || n < 1) throw new ValidationError('limit', 'must be a positive integer');
       if (n > DIAGNOSTICS_LIST_MAX) {
-        throw new ValidationError('limit', `over budget DIAGNOSTICS_LIST_MAX: configured ${DIAGNOSTICS_LIST_MAX}, observed ${n}; page with since=<received_at of the last row>`);
+        throw new ValidationError('limit', `over budget DIAGNOSTICS_LIST_MAX: configured ${DIAGNOSTICS_LIST_MAX}, observed ${n}; page with before=<received_at>&before_id=<id> of the last row`);
       }
       limit = n;
     }
-    const rows = since
-      ? (await deps.db.query(`SELECT ${LIST_COLUMNS} FROM diagnostics WHERE received_at >= $1 ORDER BY received_at DESC LIMIT $2`, [since, limit])).rows
-      : (await deps.db.query(`SELECT ${LIST_COLUMNS} FROM diagnostics ORDER BY received_at DESC LIMIT $1`, [limit])).rows;
+    // Newest first; the (received_at, id) cursor pages toward older rows.
+    const where: string[] = [];
+    const params: unknown[] = [];
+    if (since) where.push(`received_at >= $${params.push(since)}`);
+    if (before) where.push(`(received_at, id) < ($${params.push(before)}, $${params.push(beforeId)}::uuid)`);
+    const sql = `SELECT ${LIST_COLUMNS} FROM diagnostics ${where.length ? `WHERE ${where.join(' AND ')}` : ''} ORDER BY received_at DESC, id DESC LIMIT $${params.push(limit)}`;
+    const rows = (await deps.db.query(sql, params)).rows;
     return reply.send({ count: rows.length, limit, since: since?.toISOString() ?? null, reports: rows });
   });
 

@@ -19,10 +19,13 @@ site/                  the Cloudflare Pages output directory; everything here is
   demos.js             runs the "What it does" loops while on screen (home)
   support.js           shows the support address on request (support)
   art/  fonts/  favicon.svg
+  og/sentryscreen-og.jpg  link-preview image (1200x630), every page's og:image
+  apple-touch-icon.png  favicon.ico   icons for iMessage, home screens and chat apps
   _headers             CSP (this origin only), nosniff, no referrer, HSTS
   _redirects           removed pages → the nearest page that still exists
   robots.txt  sitemap.xml  .well-known/security.txt
-design/                generators for the drawings and colour tokens (not deployed)
+design/                generators for the drawings and colour tokens (not deployed);
+                       build-og.sh renders og.html into the preview image and icons
 site-check/            stamp-assets.sh and a small link/asset check (not deployed)
 ```
 
@@ -37,6 +40,11 @@ there.
 - After changing a drawing or a colour: `node design/build-hero.mjs` and
   `node design/build-figures.mjs`, then stamp. Edit the generators, never the
   generated regions (`hero-scene`, `theme`, `fig:*`).
+- Every page carries the same link-preview block in `<head>` (canonical,
+  `og:*`, `twitter:*`, icons) with its own title, description and URL. After a
+  drawing changes: `bash design/build-og.sh` (headless Chrome; keeps the image
+  under WhatsApp's ~300 KB). A changed image needs a new file name, since chat
+  apps cache previews.
 - The privacy page must match what the app sends and what the server keeps
   (`src/limits.ts` `DIAGNOSTICS_RETENTION_DAYS`).
 

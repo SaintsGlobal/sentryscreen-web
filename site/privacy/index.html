@@ -5,15 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Privacy statement — SentryScreen</title>
     <meta name="description" content="What SentryScreen sends (only a diagnostic report you approve), what it never sends, and how long our server keeps a report. Screen content stays on your Mac." />
+    <link rel="canonical" href="https://www.sentry-screen.com/privacy/" />
+    <!-- Link previews (iMessage, Slack, Discord, WhatsApp, X, LinkedIn,
+         Facebook). The image is design/build-og.sh's output. -->
     <meta property="og:site_name" content="SentryScreen" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Privacy statement — SentryScreen" />
     <meta property="og:description" content="What SentryScreen sends (only a diagnostic report you approve), what it never sends, and how long our server keeps a report. Screen content stays on your Mac." />
     <meta property="og:url" content="https://www.sentry-screen.com/privacy/" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://www.sentry-screen.com/og/sentryscreen-og.jpg" />
+    <meta property="og:image:secure_url" content="https://www.sentry-screen.com/og/sentryscreen-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SentryScreen: Explicit content on your Mac, covered the moment it appears. Free, open source, for Mac. Lantern, the SentryScreen character, waves beside a computer whose screen shows Content blocked." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Privacy statement — SentryScreen" />
+    <meta name="twitter:description" content="What SentryScreen sends (only a diagnostic report you approve), what it never sends, and how long our server keeps a report. Screen content stays on your Mac." />
+    <meta name="twitter:image" content="https://www.sentry-screen.com/og/sentryscreen-og.jpg" />
+    <meta name="twitter:image:alt" content="SentryScreen: Explicit content on your Mac, covered the moment it appears. Free, open source, for Mac. Lantern, the SentryScreen character, waves beside a computer whose screen shows Content blocked." />
     <meta name="theme-color" content="#f0e2c4" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#2a1f18" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/shantell-sans-700.woff2" as="font" type="font/woff2" crossorigin />
     <!-- theme.js runs before the stylesheet (no defer) so a saved room choice paints first. -->
     <script src="/theme.js?v=1e1f24ab"></script>
@@ -68,9 +83,11 @@
         <h2>On your Mac</h2>
         <p>
           SentryScreen uses the macOS Screen Recording permission to receive
-          what is on the screen. It examines those frames in memory. It does not
-          write screen images or video to disk, and it does not send them
-          anywhere.
+          what is on the screen. It examines those frames in memory. The
+          installed app never writes screen images or video to disk, and it
+          never sends them anywhere. The one exception is a developer
+          command-line option that someone runs by hand: it saves cropped
+          screen images to a folder they choose, on that Mac.
         </p>
         <p>
           It writes local logs about its own work: what was covered and how
@@ -99,7 +116,9 @@
           <li>
             A random report number (<code>machine_id</code>), made fresh for
             each report and never stored on the Mac. It is not your
-            Mac&rsquo;s serial number, and two reports cannot be linked by it.
+            Mac&rsquo;s serial number, and it does not link two reports. Two
+            reports from the same Mac can still share some of the same log
+            lines.
           </li>
           <li>The SentryScreen version and build, and which detection-model file it uses.</li>
           <li>
