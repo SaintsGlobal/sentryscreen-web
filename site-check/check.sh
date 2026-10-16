@@ -16,7 +16,8 @@ for page in $(find . -name '*.html'); do
     *.css|*.js) echo "FAIL $page: $ref has no ?v= stamp (site-check/stamp-assets.sh)"; fail=1 ;;
     esac
   done
-  if grep -qE '<(script|link)[^>]+(src|href)="https?://' "$page"; then
+  # rel="canonical" names this page's own address; it loads nothing.
+  if grep -E '<(script|link)[^>]+(src|href)="https?://' "$page" | grep -qv 'rel="canonical"'; then
     echo "FAIL $page: loads a script or stylesheet from another origin"; fail=1
   fi
 done

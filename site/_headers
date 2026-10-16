@@ -12,3 +12,8 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Strict-Transport-Security: max-age=31536000
+
+# The link-preview image: chat apps fetch it once per link and cache it
+# themselves; a day here spares repeat fetches. Rename the file to change it.
+/og/*
+  Cache-Control: public, max-age=86400

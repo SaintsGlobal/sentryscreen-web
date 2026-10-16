@@ -102,8 +102,16 @@ export function buildApp(deps: Deps): FastifyInstance {
     if (e.code?.startsWith('FST_') && typeof e.statusCode === 'number' && e.statusCode >= 400 && e.statusCode < 500) {
       return reply.code(e.statusCode).send({ error: 'bad_request', code: e.code });
     }
-    req.log.error({ err, event: 'unhandled_error' }, 'unhandled error');
+    // An allowlisted shape only: a database error's message and detail can
+    // quote the report it refused.
+    req.log.error({ event: 'unhandled_error', code: typeof e.code === 'string' ? e.code : undefined, route: req.routeOptions.url }, 'unhandled error');
     return reply.code(500).send({ error: 'internal' });
+  });
+
+  // Fastify's default 404 logs the full URL, query string included.
+  app.setNotFoundHandler((req, reply) => {
+    req.log.info({ event: 'not_found', method: req.method, path: req.url.split('?')[0] }, 'route not found');
+    return reply.code(404).send({ error: 'not_found' });
   });
 
   // Process up and database reachable.
